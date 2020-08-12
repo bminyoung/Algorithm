@@ -1,4 +1,4 @@
-package me.nyoung.BOJ.DP;
+package me.nyoung.BOJ.DP.BitMask;
 
 import java.util.Arrays;
 import java.util.Scanner;

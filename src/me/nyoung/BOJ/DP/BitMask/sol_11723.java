@@ -1,13 +1,13 @@
-package me.nyoung.BOJ.DP;
+package me.nyoung.BOJ.DP.BitMask;
 
 import java.io.*;
 
-public class sol_11723_2 {
+public class sol_11723 {
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
         int M = Integer.parseInt(br.readLine());
-        int bit = 0;
+        boolean[] arr = new boolean[21];
         for (int i = 0; i < M; i++) {
             String[] line = br.readLine().split(" ");
             String cmd = line[0];
@@ -15,24 +15,23 @@ public class sol_11723_2 {
             if(line.length > 1) num = Integer.parseInt(line[1]);
             switch (cmd){
                 case "add":
-                    bit |= (1 << num);
+                    arr[num] = true;
                     break;
                 case "remove":
-                    bit &= ~(1 << num);
+                    arr[num] = false;
                     break;
                 case "check":
-                    if((bit & (1 << num)) == 0) bw.write(String.valueOf(0));
-                    else bw.write(String.valueOf(1));
+                    bw.write(arr[num] ? String.valueOf(1) : String.valueOf(0));
                     bw.newLine();
                     break;
                 case "toggle":
-                    bit ^= (1 << num);
+                    arr[num] = !arr[num];
                     break;
                 case "all":
-                    bit = (1 << 21) - 1; // 111....11111 (0~20까지)
+                    for (int j = 1; j <= 20; j++) arr[j] = true;
                     break;
                 case "empty":
-                    bit = 0;
+                    arr = new boolean[21];
                     break;
             }
         }
