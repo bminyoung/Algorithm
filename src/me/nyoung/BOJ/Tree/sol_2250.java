@@ -60,15 +60,16 @@ public class sol_2250 {
 
         if(nodes[start].right != -1) inOrder(nodes, nodes[start].right, level+1);
     }
-}
 
-class Node{
-    int parent = 0;
-    int data;
-    int left = -1;
-    int right = -1;
+    static class Node{
+        int parent = 0;
+        int data;
+        int left = -1;
+        int right = -1;
 
-    public Node(int data) {
-        this.data = data;
+        public Node(int data) {
+            this.data = data;
+        }
     }
 }
+
